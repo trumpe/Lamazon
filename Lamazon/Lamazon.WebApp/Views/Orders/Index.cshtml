@@ -1,0 +1,95 @@
+﻿@model IEnumerable<OrderViewModel>
+
+@{
+    ViewData["Title"] = "Orders";
+    //bool IsSupplier = User.IsInRole("supplier");
+
+}
+
+<h2>Orders</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Status</th>
+            <th>Price</th>
+            <th>User</th>
+            <th>Product</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (OrderViewModel o in Model)
+        {
+        <tr>
+            <td>@o.Id</td>
+            <td>@o.Status</td>
+            <td>@o.Price$</td>
+            <td>@o.User.FullName</td>
+            <td>
+                <a class="btn btn-default" asp-controller="Orders" asp-action="OrderDetails" asp-route-orderId="@o.Id">Order Details</a>
+            </td>
+
+            <td>
+                @if (ViewBag.UserOption == UserOptions.Customer)
+                {
+                    @if (o.Status == StatusTypeViewModel.Init)
+                    {
+
+                        <a class="btn btn-primary" asp-controller="Orders" asp-action="FinishOrder" asp-route-orderId="@o.Id">Finish</a>
+                        <a class="btn btn-primary" asp-controller="Orders" asp-action="CancelOrder" asp-route-orderId="@o.Id">Cancel</a>
+                    }
+                    @if (o.Status == StatusTypeViewModel.Confirmed)
+                    {
+                        ViewData["OrderId"] = o.Id;
+                        string paymentPopupId = $"#paymentPopup{o.Id}";
+
+                            <button class="btn btn-danger" data-toggle="modal" data-target="@paymentPopupId">Pay</button>
+                            <partial name="PaymentPopup" model="new InvoiceViewModel()" view-data="ViewData" />
+                    }
+                    @if (o.Status == StatusTypeViewModel.Paid || o.Status == StatusTypeViewModel.Delivered)
+                    {
+                        ViewData["OrderId"] = o.Id;
+                        string invoicePopupId = $"#invoicePopup{o.Id}";
+
+                            <button onclick="getInvoiceData(@o.Id)" class="btn btn-danger" data-toggle="modal" data-target="@invoicePopupId">Show Invoice</button>
+                            <partial name="InvoicePopup" view-data="ViewData" />
+                    }
+                }
+                else if (ViewBag.UserOption == UserOptions.Supplier || ViewBag.UserOption == UserOptions.Admin)
+                {
+                    @if (o.Status == StatusTypeViewModel.Processing)
+                    {
+                            <a class="btn btn-primary" asp-controller="Orders" asp-action="ConfirmOrder" asp-route-orderId="@o.Id">Approve</a>
+                            <a class="btn btn-primary" asp-controller="Orders" asp-action="DeclineOrder" asp-route-orderId="@o.Id">Decline</a>
+                    }
+                    @if (o.Status == StatusTypeViewModel.Paid)
+                    {
+                            <a class="btn btn-primary" asp-controller="Orders" asp-action="MarkAsDelivered" asp-route-orderId="@o.Id">Mark as delivered</a>
+                    }
+                }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function getInvoiceData(orderId) {
+        console.log("live!")
+        fetch(`@ViewBag.WebAppBaseUrl/Invoices/ShowInvoice?orderId=${orderId}`)
+            .then(res => res.json())
+            .then(data => {
+
+                console.log(data)
+
+                let paymentMethod = document.getElementById(`IPPaymentMethod${orderId}`)
+                let address = document.getElementById(`IPAddress${orderId}`)
+                let price = document.getElementById(`IPPrice${orderId}`)
+
+                paymentMethod.value = data.PaymentMethod
+                address.value = data.Address
+                price.value = data.Price + "$"
+            })
+    }
+</script>

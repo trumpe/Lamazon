@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.779
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lamazon.WebApp", "Lamazon.WebApp\Lamazon.WebApp.csproj", "{0546B292-E515-45FD-9FBA-463600049575}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lamazon.DataAccess", "Lamazon.DataAccess\Lamazon.DataAccess.csproj", "{AE3EBFA4-FB4F-414D-93DF-265ACD103E88}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lamazon.Domain", "Lamazon.Domain\Lamazon.Domain.csproj", "{FF9ABBC1-5D1F-421E-9FF4-3A7CDEDA21AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lamazon.WebModels", "Lamazon.WebModels\Lamazon.WebModels.csproj", "{D7B8605A-EDE0-4E72-B969-6C8445450072}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lamazon.Services", "Lamazon.Services\Lamazon.Services.csproj", "{E8A05966-B2BE-42ED-9F72-CC6CE2324DFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lamazon.HealthPerformanceCheckApp", "Lamazon.HealthPerformanceCheckApp\Lamazon.HealthPerformanceCheckApp.csproj", "{41DF4B61-69CE-40F3-B20E-78E0B7089A4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0546B292-E515-45FD-9FBA-463600049575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0546B292-E515-45FD-9FBA-463600049575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0546B292-E515-45FD-9FBA-463600049575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0546B292-E515-45FD-9FBA-463600049575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE3EBFA4-FB4F-414D-93DF-265ACD103E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE3EBFA4-FB4F-414D-93DF-265ACD103E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE3EBFA4-FB4F-414D-93DF-265ACD103E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE3EBFA4-FB4F-414D-93DF-265ACD103E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF9ABBC1-5D1F-421E-9FF4-3A7CDEDA21AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF9ABBC1-5D1F-421E-9FF4-3A7CDEDA21AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF9ABBC1-5D1F-421E-9FF4-3A7CDEDA21AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF9ABBC1-5D1F-421E-9FF4-3A7CDEDA21AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7B8605A-EDE0-4E72-B969-6C8445450072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7B8605A-EDE0-4E72-B969-6C8445450072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7B8605A-EDE0-4E72-B969-6C8445450072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7B8605A-EDE0-4E72-B969-6C8445450072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A05966-B2BE-42ED-9F72-CC6CE2324DFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A05966-B2BE-42ED-9F72-CC6CE2324DFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A05966-B2BE-42ED-9F72-CC6CE2324DFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A05966-B2BE-42ED-9F72-CC6CE2324DFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41DF4B61-69CE-40F3-B20E-78E0B7089A4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41DF4B61-69CE-40F3-B20E-78E0B7089A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41DF4B61-69CE-40F3-B20E-78E0B7089A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41DF4B61-69CE-40F3-B20E-78E0B7089A4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D4219AC-F980-402E-85B1-FB8E72318694}
+	EndGlobalSection
+EndGlobal

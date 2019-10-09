@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ProductViewModel>
+
+@{ 
+    ViewData["Title"] = "Products";
+    bool IsAdmin = User.IsInRole("admin");
+}
+
+
+<h2>Products</h2>
+
+<div class="products">
+    @foreach (var product in Model)
+    {
+        <div class="thumbnail">
+            <img class="product-image" src="~/images/products/product-@(product.Id).png" />
+            <div class="caption">
+                <input asp-for="@product.Id" type="hidden" />
+                @*@Html.HiddenFor(x => product.Id);*@
+                <h3>@product.Name</h3>
+                <h5>@product.Price $</h5>
+                <p>@product.Description</p>
+                @if (!IsAdmin)
+                {
+                    <a class="btn btn-primary" asp-controller="Products" asp-action="AddToCart" asp-route-productId="@product.Id">Add to cart</a>
+                }
+            </div>
+        </div>
+    }
+</div>

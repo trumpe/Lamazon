@@ -1,0 +1,32 @@
+﻿@model OrderViewModel
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<h2>Order Details</h2>
+
+<div class="container">
+    <div class="col-sm-4">
+        <ul class="list-group">
+            <li class="list-group-item active">User:</li>
+            <li class="list-group-item">@Model.User.FullName</li>
+            <li class="list-group-item active">Status:</li>
+            <li class="list-group-item">@Model.Status</li>
+            <li class="list-group-item active">Price:</li>
+            <li class="list-group-item">@Model.Price$</li>
+            <li class="list-group-item active">Products:</li>
+            <li class="list-group-item">
+                <ul class="list-group">
+                    @foreach (ProductViewModel p in Model.Products)
+                    {
+                        <li class="list-group-item alert-info">@p.Name</li>
+                        @*<li class="list-group-item">@p.Category</li>*@
+                        <li class="list-group-item">@p.Price$</li>
+                    }
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+

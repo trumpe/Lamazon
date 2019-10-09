@@ -1,0 +1,34 @@
+﻿@model InvoiceViewModel
+
+@{ 
+    string popupId = $"paymentPopup{ViewData["OrderId"]}";
+}
+
+<div id="@popupId" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form asp-controller="Invoices" asp-action="Pay" method="post">
+                <div class="modal-header">
+                    <h3 class="modal-title">Payment method</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="">Payment Method</label>
+                        <input asp-for="PaymentMethod" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Address</label>
+                        <input asp-for="Address" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="">Order ID:</label>
+                        <input readonly asp-for="OrderId" value="@ViewData["OrderId"]" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Pay Now</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
